@@ -8,43 +8,74 @@
 <title>profile page</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style2.css">  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
   <body>
+ 
   
+ <nav class="main-nav">
+ 
+		<a href="#"><h2>Profile</h2></a>
+		
+		<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+	</nav>
+   
   
- <div class="container">
- <div class="form-group">
-  <h2>Profile</h2>
-  </div>
-  <form>
-    <div class="form-group">
+<form action="/action_page.php">
+    <div class="container">
       <label for="username">Username:</label>
-      <input type="username" class="form-control">
-    </div>
-    <div class="form-group">
+	  <br>
+      <input type="text" placeholder=" Username" type="username" class="form-control">
+	  <br>
+    
+    
       <label for="email">Email:</label>
-      <input type="email" class="form-control">
-    </div>
-	<div class="form-group">
-      <label for="fName">First Name:</label>
-      <input type="fName" class="form-control">
-    </div>
-	<div class="form-group">
-      <label for="Lname">Last Name:</label>
-      <input type="Lname" class="form-control">
-    </div>
+	  <br>
+      <input type="text" placeholder=" Email" type="email" class="form-control">
+	  <br>
+    
 	
-	<div class="container">
+      <label for="fName">First Name:</label>
+	  <br>
+      <input type="text" placeholder=" First Name" type="fName" class="form-control">
+	  <br>
+    
+	
+      <label for="Lname">Last Name:</label>
+	  <br>
+      <input type="text" placeholder=" Last Name" type="Lname" class="form-control">
+    <br>
             
   <button type="button" class="btn btn-info btn-lg">Website</button>      
-</div>
-    <div class="container">
+<br>
+    
     <button type="button" class="btn btn-danger">Logout</button>
-	</div>
+	
   </form>
+  <br>
+  </div>
+  <nav class="main-nav">
+		
+		
+	  <span class="glyphicon glyphicon-user"></span>
+	</nav>
+ 
+
+ <section class="footer_banner" id="contact">
+    <h2 class="hidden">Footer Banner Section </h2>
+	
+    <div class="button"></div>
+  </section>
+ 
+ 
+  <div class="copyright"><strong>Copyrights 2017</strong></div>
+  
+          
+       
 </div>
+
 </body>
 </center> 
 </html>
