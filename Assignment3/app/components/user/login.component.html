@@ -7,15 +7,18 @@
   
   <div class="container">
   
-    <input type="text" placeholder=" Username" name="uname" required>
+    <input (ngModule)="username" name="username" class="form-control" type="text"/>
 	<br>
+  
+   <input (ngModule)="password" name="password" class="form-control" type="password"/>
 
-    <input type="password" placeholder=" Password" name="psw" required>
 	<br>
          
     <button  class="btn btn-info btn-lg">Login</button>
 	<br>
      <a href="register.html" target="_blank">Register</a>
+	 <br>
+	 <a (click)="login(user)">Login</a>
     
   </div>
 
