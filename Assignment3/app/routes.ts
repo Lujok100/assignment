@@ -5,5 +5,5 @@ import {ProfileComponent} from './components/user/profile.component'
 export const appRoutes = [
 	{path:'login',component:LoginComponent},
 	{path:'user/:uid', component: ProfileComponent},
-	{path:'',rediredTo:'/login', pathMatch:'full'}
+	{path: '', component:LoginComponent}
 ]

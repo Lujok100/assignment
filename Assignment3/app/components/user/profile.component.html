@@ -1,52 +1,44 @@
+<a href="#">
+    <h2>Profile</h2>
+</a>
 
+<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 
-<center>
+<div class="container">
+    <label for="username">Username:</label>
+    <br>
+    <input (ngModel)="username" name="username" class="form-control" type="text" />
+    <br>
+    <label for="email">Email:</label>
+    <br>
+    <input type="text" placeholder=" Email" type="email" class="form-control">
+    <br>
+    <label for="fName">First Name:</label>
+    <br>
+    <input (ngModul)="firstName" name="firstName" class="form-control" type="text" />
+    <br>
+    <label for="Lname">Last Name:</label>
+    <br>
+    <input (ngModul)="lastName" name="lastName" class="form-control" type="password" />
+    <br>
 
- 
-		<a href="#"><h2>Profile</h2></a>
-		
-		<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-	</nav> 
-<form action="/action_page.php">
-    <div class="container">
-      <label for="username">Username:</label>
-	  <br>
-      <input (ngModel)="username" name="username" class="form-control" type="text"/>
-	  <br>
-      <label for="email">Email:</label>
-	  <br>
-      <input type="text" placeholder=" Email" type="email" class="form-control">
-	  <br>
-      <label for="fName">First Name:</label>
-	  <br>
-      <input (ngModul)="firstName" name="firstName" class="form-control" type="text"/>
-	  <br>
-      <label for="Lname">Last Name:</label>
-	  <br>
-      <input (ngModul)="lastName" name="lastName" class="form-control" type="password"/>
-     <br>
-            
-  <button type="button" class="btn btn-info btn-lg">Website</button>      
-<br>
-    
+    <button type="button" class="btn btn-info btn-lg">Website</button>
+    <br>
+
     <button type="button" class="btn btn-danger">Logout</button>
-	
-  </form>
-  <br>
-  </div>
-  <nav class="main-nav">
-			
-	  <span class="glyphicon glyphicon-user"></span>
-	</nav>
- 
- <section class="footer_banner" id="contact">
-    <h2 class="hidden"> </h2>
-	
-    <div class="button"></div>
-  </section>
- 
-  <div class="copyright"><strong>Copyrights 2017</strong></div>
-               
-</div>
 
-</center>
+
+    <br>
+</div>
+<nav class="main-nav">
+
+    <span class="glyphicon glyphicon-user"></span>
+</nav>
+
+<section class="footer_banner" id="contact">
+    <h2 class="hidden"> </h2>
+
+    <div class="button"></div>
+</section>
+
+<div class="copyright"><strong>Copyrights 2017</strong></div>
