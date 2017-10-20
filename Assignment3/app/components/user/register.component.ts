@@ -5,7 +5,7 @@ import {UserService} from '../../services/user.service'
 	templateUrl: 'app/components/user/register.component.html'
 })
 
-export class LoginComponent  {
+export class RegiterComponent  {
     
     constructor(private userService: UserService) {
     }
