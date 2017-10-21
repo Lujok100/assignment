@@ -14,6 +14,9 @@ var website_thumbnail_component_1 = require("./websites/website-thumbnail.compon
 var user_service_1 = require("./services/user.service");
 var router_1 = require("@angular/router");
 var routes_1 = require("./routes");
+var forms_1 = require("@angular/forms");
+var login_component_1 = require("./components/user/login.component");
+var profile_component_1 = require("./components/user/profile.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -21,8 +24,8 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, router_1.RouterModule.forRoot(routes_1.appRoutes)],
-        declarations: [websites_app_component_1.WebsitesAppComponent, websites_list_component_1.WebsitesListComponent, website_thumbnail_component_1.WebsiteThumbnailComponent],
+        imports: [platform_browser_1.BrowserModule, router_1.RouterModule.forRoot(routes_1.appRoutes), forms_1.FormsModule],
+        declarations: [websites_app_component_1.WebsitesAppComponent, websites_list_component_1.WebsitesListComponent, website_thumbnail_component_1.WebsiteThumbnailComponent, login_component_1.LoginComponent, profile_component_1.ProfileComponent],
         bootstrap: [websites_app_component_1.WebsitesAppComponent],
         providers: [user_service_1.UserService]
     })
