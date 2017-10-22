@@ -14,7 +14,7 @@
             <input (ngModel)="password" name="password" id="password" type="password" class="form-control"  />
         </div>
 
-        <button type="submit" class="btn btn-primary">Login</button>
+        <a (click)="login(user)">Login</a>
         <br>
         <button type="button" class="btn btn-default" (click)="register()">Register</button>
     </form>

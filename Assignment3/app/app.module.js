@@ -9,8 +9,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var websites_app_component_1 = require("./websites-app.component");
-var websites_list_component_1 = require("./websites/websites-list.component");
-var website_thumbnail_component_1 = require("./websites/website-thumbnail.component");
 var user_service_1 = require("./services/user.service");
 var router_1 = require("@angular/router");
 var routes_1 = require("./routes");
@@ -25,7 +23,7 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, router_1.RouterModule.forRoot(routes_1.appRoutes), forms_1.FormsModule],
-        declarations: [websites_app_component_1.WebsitesAppComponent, websites_list_component_1.WebsitesListComponent, website_thumbnail_component_1.WebsiteThumbnailComponent, login_component_1.LoginComponent, profile_component_1.ProfileComponent],
+        declarations: [websites_app_component_1.WebsitesAppComponent, login_component_1.LoginComponent, profile_component_1.ProfileComponent],
         bootstrap: [websites_app_component_1.WebsitesAppComponent],
         providers: [user_service_1.UserService]
     })
