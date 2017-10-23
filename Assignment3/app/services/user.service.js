@@ -25,6 +25,7 @@ var UserService = (function () {
         USERS.push(user);
     };
     UserService.prototype.deleteUser = function (user) {
+        USERS.pop();
     };
     return UserService;
 }());

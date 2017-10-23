@@ -10,18 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var user_service_1 = require("../../services/user.service");
 var RegisterComponent = (function () {
-    function RegisterComponent(userService) {
+    function RegisterComponent(userService, router) {
         this.userService = userService;
-        newuser: user_service_1.UserService[] = [];
-        counter = 0;
+        this.router = router;
+        this.IUser = [];
+        this.counter = 0;
     }
     RegisterComponent.prototype.onsubmit = function (userForm) {
         console.log('form submit clicked..');
-        var user = this.userService.findUserByCredentials(userForm.userName, userForm.password);
-        if (user) {
-            this.UserService.push(this.UserService);
+        this.Service = new (userForm.userName, userForm.password);
+        if (userForm) {
+            this.IUser.push(this.Service);
         }
         this.counter++;
     };
@@ -32,7 +34,7 @@ RegisterComponent = __decorate([
         selector: 'side-panel',
         templateUrl: 'app/components/register.component.html'
     }),
-    __metadata("design:paramtypes", [user_service_1.UserService])
+    __metadata("design:paramtypes", [user_service_1.UserService, router_1.Router])
 ], RegisterComponent);
 exports.RegisterComponent = RegisterComponent;
 //# sourceMappingURL=register.component.js.map

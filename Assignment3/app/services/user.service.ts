@@ -22,8 +22,8 @@ export class UserService {
 			USERS.push(user)
 	}
 	
-    deleteUser(user:IUser) {
-		
+    deleteUser(user: IUser) {
+        USERS.pop()	
 		
 	}
 	
