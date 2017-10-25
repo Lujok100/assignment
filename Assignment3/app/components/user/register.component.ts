@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms'
 import { IUser } from './user.model'
 
 @Component({
-    selector: 'side-panel',
+  
     templateUrl: 'app/components/register.component.html'
 })
 export class RegisterComponent {

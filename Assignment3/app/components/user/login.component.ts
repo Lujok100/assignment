@@ -16,7 +16,7 @@ export class LoginComponent {
         let user = this.userService.findUserByCredentials(userForm.userName, userForm.password);
         if (user) {
             //redirect to /user/user.id
-            this.router.navigate(['/user'])
+            this.router.navigate(['/user',user.id])
         }
         else {
             //show error message

@@ -31,7 +31,6 @@ var RegisterComponent = (function () {
 }());
 RegisterComponent = __decorate([
     core_1.Component({
-        selector: 'side-panel',
         templateUrl: 'app/components/register.component.html'
     }),
     __metadata("design:paramtypes", [user_service_1.UserService, router_1.Router])
