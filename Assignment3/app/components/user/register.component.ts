@@ -15,8 +15,7 @@ export class RegisterComponent {
     Service: UserService;
     
 
-    constructor(private userService: UserService, private router: Router  ) {
-        
+    constructor(private userService: UserService, private router: Router  ) {   
 
     }
 
@@ -24,11 +23,11 @@ export class RegisterComponent {
         console.log('form submit clicked..');
         this.Service = new (userForm.userName, userForm.password);
         if (userForm) {
-            this.IUser.push(this.Service);
+            this.userService.createUser(userForm.userNmae);
+            this.userService.createUser(userForm.password);
                 
             }
           
-        
             this.counter++;
     }
 }
