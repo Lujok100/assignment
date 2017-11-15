@@ -15,24 +15,24 @@ namespace WebApi.Controllers
     public class UserController : ApiController
     {
 
-        private ViewUserControl _user;
+        private ViewUserControl users;
 
         public UserController()
         {
-            _user = new ViewUserControl();
+            users = new ViewUserControl();
         }
 
 
         //Creat usrer
         public void Post([FromBody]UserEntity user)
         {
-            _user.Add(user);
+            users.Add(user);
         }
 
         //Get all users
         public IEnumerable<UserEntity> Get()
         {
-            return _user.Get();
+            return users.Get();
         }
 
         //api/user?username=username Find by UserName
@@ -41,7 +41,7 @@ namespace WebApi.Controllers
         {
             UserEntity user = new UserEntity();
             user.UserName = userName;
-            return _user.FindUserByUsername(user);
+            return users.FindUserByUsername(user);
         }
 
 
@@ -52,13 +52,13 @@ namespace WebApi.Controllers
             UserEntity user = new UserEntity();
             user.UserName = userName;
             user.Password = password;
-            return _user.FindUserByCredentials(user);
+            return users.FindUserByCredentials(user);
         }
 
         //api/user/:userId by Id
         public UserEntity Get(int id)
         {
-            var user = this._user.Get(id);
+            var user = this. users.Get(id);
             if (user != null)
             {
                 return user;
@@ -69,13 +69,13 @@ namespace WebApi.Controllers
         //api/user/:userId
         public void Put(int id, [FromBody]UserEntity user)
         {
-            _user.update(user);
+            users.update(user);
         }
 
         //Delete user
         public void Delete(int id)
         {
-            _user.Remove(id);
+            users.Remove(id);
         }
 
     }  
