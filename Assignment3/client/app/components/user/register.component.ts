@@ -6,13 +6,13 @@ import { IUser } from './user.model'
 
 @Component({
   
-    templateUrl: 'app/components/register.component.html'
+    templateUrl: 'app/components/user/register.component.html'
 })
 export class RegisterComponent {
 
-    IUser: UserService[] = [];
+    
     counter = 0;
-    Service: UserService;
+    
     
 
     constructor(private userService: UserService, private router: Router  ) {   
@@ -21,10 +21,10 @@ export class RegisterComponent {
 
     onsubmit(userForm) {
         console.log('form submit clicked..');
-        this.Service = new (userForm.userName, userForm.password);
-        if (userForm) {
-            this.userService.createUser(userForm.userNmae);
-            this.userService.createUser(userForm.password);
+        
+        if (userForm.userName) {
+          //  this.userService.createUser(username, password);
+            
                 
             }
           

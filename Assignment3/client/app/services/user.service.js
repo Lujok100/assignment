@@ -13,7 +13,8 @@ var UserService = (function () {
     UserService.prototype.findUserById = function (id) {
         return USERS.find(function (user) { return user.id === id; });
     };
-    UserService.prototype.createUser = function (user) {
+    UserService.prototype.createUser = function (username, password) {
+        USERS.push(username, password);
     };
     UserService.prototype.findUserByUsername = function (username) {
         return USERS.find(function (user) { return user.userName === username; });

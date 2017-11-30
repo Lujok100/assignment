@@ -16,15 +16,12 @@ var RegisterComponent = (function () {
     function RegisterComponent(userService, router) {
         this.userService = userService;
         this.router = router;
-        this.IUser = [];
         this.counter = 0;
     }
     RegisterComponent.prototype.onsubmit = function (userForm) {
         console.log('form submit clicked..');
-        this.Service = new (userForm.userName, userForm.password);
-        if (userForm) {
-            this.userService.createUser(userForm.userNmae);
-            this.userService.createUser(userForm.password);
+        if (userForm.userName) {
+            //  this.userService.createUser(username, password);
         }
         this.counter++;
     };
@@ -32,7 +29,7 @@ var RegisterComponent = (function () {
 }());
 RegisterComponent = __decorate([
     core_1.Component({
-        templateUrl: 'app/components/register.component.html'
+        templateUrl: 'app/components/user/register.component.html'
     }),
     __metadata("design:paramtypes", [user_service_1.UserService, router_1.Router])
 ], RegisterComponent);
