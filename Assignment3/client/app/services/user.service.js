@@ -22,11 +22,13 @@ var UserService = (function () {
     UserService.prototype.findUserByCredentials = function (username, password) {
         return USERS.find(function (user) { return user.userName === username && user.password === password; });
     };
-    UserService.prototype.updateUser = function (user) {
-        USERS.push(user);
+    UserService.prototype.updateUser = function (userID, user) {
+        var temp = USERS.findIndex(function (user) { return user.id === userID; });
+        USERS.splice(temp, 1, user);
     };
-    UserService.prototype.deleteUser = function (user) {
-        USERS.pop();
+    UserService.prototype.deleteUser = function (userID) {
+        var temp = USERS.findIndex(function (user) { return user.id === userID; });
+        USERS.splice(temp, 1);
     };
     return UserService;
 }());

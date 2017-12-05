@@ -1,0 +1,15 @@
+﻿<div class="container">
+    <img [src]="user?.imageUrl" [alt]="user?.name" class="user-image">
+
+    <div class="row">
+        <div class="col-md-8">
+            <h2>{{user?.name}} </h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div><strong>FistName:</strong> {{user?.firstName}}</div>
+            <div><strong>LastName:</strong> {{user?.lastName}}</div>
+            <div><strong>Password:</strong> ${{user?.password}}</div>
+        </div>
