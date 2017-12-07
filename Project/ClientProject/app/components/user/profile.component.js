@@ -8,12 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var auth_service_1 = require("./auth.service");
 var user_service_1 = require("../../services/user.service");
 var router_2 = require("@angular/router");
-var ProfileComponent = (function () {
+var ProfileComponent = /** @class */ (function () {
     function ProfileComponent(auth, router, userService, route) {
         this.auth = auth;
         this.router = router;
@@ -36,13 +37,13 @@ var ProfileComponent = (function () {
         };
         this.userService.updateUser(this.auth.user.id, newUser);
     };
+    ProfileComponent = __decorate([
+        core_1.Component({
+            templateUrl: 'app/components/user/profile.component.html'
+        }),
+        __metadata("design:paramtypes", [auth_service_1.AuthService, router_1.Router, user_service_1.UserService, router_2.ActivatedRoute])
+    ], ProfileComponent);
     return ProfileComponent;
 }());
-ProfileComponent = __decorate([
-    core_1.Component({
-        templateUrl: 'app/components/user/profile.component.html'
-    }),
-    __metadata("design:paramtypes", [auth_service_1.AuthService, router_1.Router, user_service_1.UserService, router_2.ActivatedRoute])
-], ProfileComponent);
 exports.ProfileComponent = ProfileComponent;
 //# sourceMappingURL=profile.component.js.map

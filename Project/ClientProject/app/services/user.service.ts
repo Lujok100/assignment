@@ -8,8 +8,8 @@ export class UserService {
 
     
         }
-    createUser(username, password: IUser) {
-       USERS.push( username, password)
+    createUser(username, password, firstName, lastName: IUser) {
+       USERS.push( username, password, firstName, lastName)
 		}
     findUserByUsername(username) :IUser {
 		return USERS.find(user => user.userName ===username)

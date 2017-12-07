@@ -6,21 +6,22 @@
 <form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
   
 
-  <div class="container">
-  
-    <input (ngModul)="username" name="username" class="form-control" type="text"/>
-	<br>   
-   <input (ngModul)="password" name="password" class="form-control" type="password"/>
-	<br>
-   
-        
-      <div class="form-group">
-          <button [disabled]="loading" class="btn btn-primary">Register</button>
-          
-          <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
-      </div>
-    
-  </div>
+    <div class="container">
+
+        <input (ngModul)="username" name="username" class="form-control" type="text" />
+        <br>
+        <input (ngModul)="password" name="password" class="form-control" type="password" />
+        <br>
+
+
+        <div>
+            <a (click)="register(null, null, null)" class="btn btn-primary btn-scale">Register</a>
+        </div>
+        <div>
+            <a (click)="cancel()" class="btn btn-warning btn-scale">Cancel</a>
+        </div>
+
+    </div>
 </form>
 
       

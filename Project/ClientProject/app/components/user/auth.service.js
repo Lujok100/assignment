@@ -8,34 +8,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var user_service_1 = require("../../services/user.service");
-var AuthService = (function () {
-    function AuthService(router, userService) {
-        this.router = router;
-        this.userService = userService;
+var http_1 = require("@angular/http");
+var AuthService = /** @class */ (function () {
+    function AuthService(http) {
+        this.http = http;
     }
-    AuthService.prototype.loginUser = function (username, password) {
-        var user = this.userService.findUserByCredentials(username, password);
-        if (user) {
-            this.router.navigate(['/user', user.id]);
-        }
-        else {
-            throw new Error("Credentials Not Valid");
-        }
+    AuthService.prototype.loginUser = function (userName, password) {
+        var _this = this;
+        this.http.get("http://localhost:50644/api/user/GetUserByCredentials?username=" +
+            userName +
+            "&password=" +
+            password).map(function (response) {
+            return response.json();
+        }).subscribe(function (user) {
+            _this.currentUser = user;
+            console.log(_this.currentUser);
+        });
+    };
+    AuthService.prototype.loginNewRegister = function () {
     };
     AuthService.prototype.logoutUser = function () {
-        this.user = null;
     };
     AuthService.prototype.isAuthenticated = function () {
-        return !!this.user;
+        return !!this.currentUser;
     };
+    AuthService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], AuthService);
     return AuthService;
 }());
-AuthService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [router_1.Router, user_service_1.UserService])
-], AuthService);
 exports.AuthService = AuthService;
 //# sourceMappingURL=auth.service.js.map

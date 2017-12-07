@@ -2,26 +2,37 @@
 import { IUser } from './user.model'
 import { Router } from '@angular/router'
 import { UserService } from '../../services/user.service'
+import { Http, Response, Headers, RequestOptions } from '@angular/http'
+import { Subject, Observable } from 'rxjs/RX'
 
 @Injectable()
 export class AuthService {
-    constructor(private router: Router, private userService: UserService) { }
-    user: IUser
-    loginUser(username: string, password: string) {
-        let user = this.userService.findUserByCredentials(username, password)
-        if (user) {
-            this.router.navigate(['/user', user.id])
-        }
-        else {
-            throw new Error("Credentials Not Valid")
-        }
+    currentUser: IUser
+    constructor(private http: Http) { }
+
+    loginUser(userName: string, password: string) {
+
+
+        this.http.get("http://localhost:50644/api/user/GetUserByCredentials?username=" +
+            userName +
+            "&password=" +
+            password).map((response: Response) => {
+                return <IUser>response.json();
+            }).subscribe(
+            user => {
+                this.currentUser = user;
+                console.log(this.currentUser)
+            }
+            )
+    }
+    loginNewRegister() {
+
     }
 
     logoutUser() {
-        this.user = null;
     }
 
     isAuthenticated() {
-        return !!this.user;
+        return !!this.currentUser;
     }
 }

@@ -20,7 +20,7 @@ export class RegisterComponent {
         else if (formValues.username == null || formValues.password == null || formValues.firstName == null || formValues.lastName == null)
             throw new Error("Please fill in all fields")
         else {
-            let temp = this.userService.createUser(formValues.username => formValues.password, formValues.firstName, formValues.lastName)
+            let temp = this.userService.createUser(formValues.username, formValues.password, formValues.firstName, formValues.lastName)
             this.auth.loginUser(formValues.username, formValues.password)
             this.router.navigate(['/user', temp])
         }
