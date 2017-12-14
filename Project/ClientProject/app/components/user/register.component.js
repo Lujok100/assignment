@@ -8,35 +8,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var auth_service_1 = require("./auth.service");
-var user_service_1 = require("../../services/user.service");
-var RegisterComponent = /** @class */ (function () {
-    function RegisterComponent(auth, router, userService) {
-        this.auth = auth;
+require("rxjs/add/operator/map");
+var RegisterComponent = (function () {
+    function RegisterComponent(router) {
         this.router = router;
-        this.userService = userService;
     }
-    RegisterComponent.prototype.registerUser = function (formValues) {
-        if (formValues.password != formValues.confirmPassword)
-            throw new Error("Passwords do not match");
-        else if (formValues.username == null || formValues.password == null || formValues.firstName == null || formValues.lastName == null)
-            throw new Error("Please fill in all fields");
-        else {
-            var temp = this.userService.createUser(formValues.username, formValues.password, formValues.firstName, formValues.lastName);
-            this.auth.loginUser(formValues.username, formValues.password);
-            this.router.navigate(['/user', temp]);
-        }
+    RegisterComponent.prototype.register = function (userName, password, email) {
+        this.router.navigate(['/user/profile']);
     };
-    RegisterComponent = __decorate([
-        core_1.Component({
-            templateUrl: 'app/components/user/register.component.html'
-        }),
-        __metadata("design:paramtypes", [auth_service_1.AuthService, router_1.Router, user_service_1.UserService])
-    ], RegisterComponent);
+    RegisterComponent.prototype.cancel = function () {
+        this.router.navigate(["/user/login"]);
+    };
     return RegisterComponent;
 }());
+RegisterComponent = __decorate([
+    core_1.Component({
+        templateUrl: 'app/components/user/register.component.html'
+    }),
+    __metadata("design:paramtypes", [router_1.Router])
+], RegisterComponent);
 exports.RegisterComponent = RegisterComponent;
 //# sourceMappingURL=register.component.js.map

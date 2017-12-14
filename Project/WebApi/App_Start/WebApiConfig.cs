@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
-//using System.Web.Http.Cors;
+using System.Web.Http.Cors;
 using System.Web.Http.Routing;
 
 namespace WebApi
@@ -17,8 +17,8 @@ namespace WebApi
             // Web API routes
             config.MapHttpAttributeRoutes();
 
-           // var cors = new EnableCorsAttribute("*", "*", "*");
-            //config.EnableCors(cors);
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
 
 
             //  config.Routes.MapHttpRoute(

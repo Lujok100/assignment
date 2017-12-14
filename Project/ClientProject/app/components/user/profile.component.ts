@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 import { Router } from '@angular/router'
 import { AuthService } from './auth.service'
-import { UserService } from '../../services/user.service'
+import { UserService } from '../../services/UserService'
 import { ActivatedRoute } from '@angular/router'
 import { IUser } from './user.model'
 import { NgForm } from '@angular/forms'
@@ -15,7 +15,11 @@ export class ProfileComponent {
     constructor(private auth: AuthService, private router: Router, private userService: UserService, private route: ActivatedRoute) { }
 
     ngOnInit() {
-        this.user = this.userService.findUserById(+this.route.snapshot.params['uid'])
+        this.userService.findUserById(+this.route.snapshot.params['uid']).subscribe(
+            user => {
+                this.user = user;
+            }
+        )
     }
 
     logout() {
@@ -24,14 +28,16 @@ export class ProfileComponent {
 
     update(formValues) {
         let newUser = {
-            id: this.auth.user.id,
-            userName: formValues.username,
+            id: this.user.id,
+            username: formValues.username,
             password: formValues.password,
             firstName: formValues.firstName,
             lastName: formValues.lastName
-        } as IUser
-        this.userService.updateUser(this.auth.user.id, newUser)
+        } 
+        this.userService.updateUser(this.user.id, newUser)
+    }
+
+    delete(userId) {
+        this.userService.deleteUser(userId)
     }
 }
-    
-

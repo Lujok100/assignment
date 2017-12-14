@@ -38,7 +38,7 @@
                 </ul>
             </div>
             <form id="searchForm"
-                  #searchForm="ngForm" (ngSubmit)="searchEmployees(searchForm.value)"
+                  #searchForm="ngForm" (ngSubmit)="searchBooks(searchForm.value)"
                   class="navbar-form navbar-right">
                 <div class="form-group">
                     <input (ngModel)="searchTerm" name="searchTerm" type="text" class="form-control" placeholder="Search People">
@@ -55,7 +55,7 @@
 <simple-modal elementId="searchModal" title="Matching Employees">
     <div class="list-group">
         <a class="list-group-item"
-           *ngFor="let employee of foundEmployees"
-           [routerLink]="['/websites',employee.websiteId]">{{employee.name}}</a>
+           *ngIf="foundBook"
+           [routerLink]="['/websites',foundBook.isbn13[0]]">{{foundBook.book_title}}</a>
     </div>
 </simple-modal>

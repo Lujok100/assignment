@@ -14,8 +14,19 @@ import { IEmployee } from '../websites/shared/website.model'
 })
 
 export class NavbarComponent {
+
     foundEmployees: IEmployee[]
+    foundBook:any
     constructor(private auth: AuthService, private websiteService: WebsiteService) { }
+
+
+    searchBooks(searchTermForm) {
+        this.websiteService.getSummaryByIsbn(searchTermForm.searchTerm).subscribe(
+            book => {
+                this.foundBook = book
+
+            })
+    }
 
     searchEmployees(searchTermForm) {
         this.websiteService.searchEmployees(searchTermForm.searchTerm).subscribe(

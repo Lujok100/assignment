@@ -8,37 +8,46 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var http_1 = require("@angular/http");
-var AuthService = /** @class */ (function () {
-    function AuthService(http) {
+var http_2 = require("@angular/http");
+var AuthService = (function () {
+    function AuthService(http, router) {
         this.http = http;
+        this.router = router;
+        this.url = null;
+        this.url = "http://localhost:65058/auth";
     }
     AuthService.prototype.loginUser = function (userName, password) {
-        var _this = this;
-        this.http.get("http://localhost:50644/api/user/GetUserByCredentials?username=" +
-            userName +
-            "&password=" +
-            password).map(function (response) {
-            return response.json();
-        }).subscribe(function (user) {
-            _this.currentUser = user;
-            console.log(_this.currentUser);
+        console.log("auth.service username: " + userName + ", password: " + password);
+        var params = new http_1.URLSearchParams();
+        params.set('userName', userName);
+        params.set('password', password);
+        var request = this.http.get(this.url, { search: params, headers: new http_2.Headers({ 'Content-Type': 'application/json' }) });
+        request
+            .map(function (response) {
+            AuthService.currentUser = response.json();
+        })
+            .subscribe(function (response) {
+            console.log("Success");
+        }, function (error) {
+            console.log("Error: " + error);
         });
+        return request;
     };
     AuthService.prototype.loginNewRegister = function () {
     };
     AuthService.prototype.logoutUser = function () {
     };
     AuthService.prototype.isAuthenticated = function () {
-        return !!this.currentUser;
     };
-    AuthService = __decorate([
-        core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.Http])
-    ], AuthService);
     return AuthService;
 }());
+AuthService.currentUser = null;
+AuthService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_2.Http, router_1.Router])
+], AuthService);
 exports.AuthService = AuthService;
 //# sourceMappingURL=auth.service.js.map

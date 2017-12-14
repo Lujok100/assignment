@@ -1,4 +1,4 @@
-﻿"use strict";
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -15,6 +15,11 @@ var WebsiteService = (function () {
     function WebsiteService(http) {
         this.http = http;
     }
+    WebsiteService.prototype.getSummaryByIsbn = function (isbn) {
+        return this.http.get("http://localhost:50644/api/BookEntty/getSummaryByIsbn?isbn=" + isbn).map(function (response) {
+            return response.json();
+        });
+    };
     WebsiteService.prototype.getWebsites = function () {
         //return this.http.get("/api/websites") //observable of Response
         //instead map it 

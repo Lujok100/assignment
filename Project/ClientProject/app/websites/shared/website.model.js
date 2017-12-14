@@ -1,2 +1,2 @@
-﻿"use strict";
+"use strict";
 //# sourceMappingURL=website.model.js.map

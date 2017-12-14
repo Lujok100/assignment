@@ -1,34 +1,285 @@
-/* app css stylesheet */
-.hoverwell:hover {
-  background-color: #485563;
-  cursor: pointer;
+body {
+    /
+    height: 100%;
+    background-color: white;
+}
+
+html {
+    
+    height: 100%;
+}
+
+h1 {
+    margin: .25em;
+}
+
+p {
+    color: black;
+}
+
+
+
+h2 {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+h3 {
+    margin: .25em;
+}
+
+
+
+a:hover {
+    text-decoration: none;
+}
+
+
+
+
+span {
+    vertical-align: middle;
+}
+
+p {
+    font-size: 1.25em;
+    margin: .25em;
+}
+
+
+
+
+img {
+    margin-bottom: .5em;
+    margin-top: .5em;
+}
+
+iframe {
+    margin-bottom: .5em;
+    margin-top: .5em;
+}
+
+
+
+.basic-list {
+    font-size: 1.25em;
+    
+    list-style-type: none;
+    margin: .25em;
+}
+
+.basic-table {
+    font-size: 1em;
+    margin-right: .5em;
+    margin-left: .5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color: black;
+    border: 1px solid rgb(189, 189, 189);
+}
+
+.basic-row {
+    padding: .5em;
+    border: 1px solid rgb(189, 189, 189);
+}
+
+.basic-col {
+    padding: .5em;
+    border: 1px solid rgb(189, 189, 189);
+}
+
+.vertical-padding {
+    padding: 2em;
+}
+
+.link-text {
+    color: rgb(0, 102, 255);
+    cursor: pointer;
+}
+
+.left-align {
+    float: left;
+}
+
+.right-align {
+    float: right;
+}
+
+
+.file-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header-body-wrapper {
+    flex-grow: 1;
+}
+
+.body-wrapper {
+    margin: 5%;
+}
+
+.header {
+    font-size: 2em;
+    padding: .25em;
+}
+
+.primary-header {
+    background-color: #3866b5;
+    color: white;
+}
+
+.secondary-header {
+    background-color: #c4c4c4;
+    color: #777777;
+}
+
+.footer {
+    font-size: 2em;
+    margin-top: .75em;
+    margin-bottom: 0em;
+    padding: .25em;
+    width: 100%;
+}
+
+.primary-footer {
+    background-color: #3866b5;
+    color: white;
+}
+
+.secondary-footer {
+    background-color: #c4c4c4;
+    color: #777777;
+}
+
+
+.form-control {
+    margin-bottom: .5em;
+    margin-top: .5em;
+}
+
+.form-group {
+    margin: .25em;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+.glyph-link {
+    color: inherit;
 }
 
 .container {
-  padding-top: 10px;
+    max-width: 100%;
+    padding: 0;
 }
 
-.pointable {
-  cursor: pointer;
+.embed-responsive {
+    min-width: 0;
+    min-height: 0;
 }
 
-button {
-  color: #555;
+.btn {
+    border: none;
+    margin-bottom: .25em;
+    margin-top: .25em;
+    width: 100%;
 }
 
-[hidden] {
-  display: none !important;
+.btn-warning {
+    background-color: #E63B2E;
+    color: white;
 }
 
-.toast-success {
-  background-color: #51a351;
+    .btn-warning:hover, .btn-warning:focus, .btn-warning:active, .open > .dropdown-toggle.btn-warning {
+        background-color: #c4c4c4;
+    }
+
+.btn-primary {
+    background-color: #FF7733;
+    color: white;
 }
-.toast-error {
-  background-color: #bd362f;
+
+    .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .open > .dropdown-toggle.btn-primary {
+        background-color: #c4c4c4;
+    }
+
+.btn-secondary {
+    background-color: #3866b5;
+    color: white;
 }
-.toast-info {
-  background-color: #2f96b4;
+
+    .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .open > .dropdown-toggle.btn-secondary {
+        background-color: #c4c4c4;
+    }
+
+
+
+h1 {
+    font-size: 2em;
+    word-wrap: break-word;
+    color: black;
 }
-.toast-warning {
-  background-color: #f89406;
+
+h3 {
+    font-size: 1.5em;
+    color: black;
+}
+
+
+.btn-scale {
+    width: 100%;
+}
+
+.form-scale {
+    width: 100%;
+}
+
+
+@media only screen and (min-width: 768px) {
+    h1 {
+        font-size: 3em;
+        word-wrap: normal;
+    }
+
+    h3 {
+        font-size: 2.5em;
+    }
+  
+    .btn-scale {
+        width: 40%;
+    }
+
+    .form-scale {
+        width: 40%;
+    }
+}
+
+
+
+@media only screen and (min-width: 992px) {
+    .btn-scale {
+        width: 40%;
+    }
+
+    .form-scale {
+        width: 40%;
+    }
+}
+
+
+
+
+@media only screen and (min-width: 1200px) {
+    .btn-scale {
+        width: 40%;
+    }
+
+    .form-scale {
+        width: 40%;
+    }
 }

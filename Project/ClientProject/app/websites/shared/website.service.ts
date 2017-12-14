@@ -8,6 +8,13 @@ export class WebsiteService {
     constructor(private http: Http) { }
 
 
+
+    getSummaryByIsbn(isbn: string) {
+        return this.http.get("http://localhost:50644/api/BookEntty/getSummaryByIsbn?isbn=" + isbn).map((response: Response) => {
+            return response.json();
+        })
+    }
+
     getWebsites(): Observable<IWebsite[]> {
         //return this.http.get("/api/websites") //observable of Response
         //instead map it 

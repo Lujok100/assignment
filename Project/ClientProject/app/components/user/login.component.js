@@ -10,23 +10,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var user_service_1 = require("../../services/user.service");
+var auth_service_1 = require("./auth.service");
 var LoginComponent = (function () {
-    function LoginComponent(userService, router) {
-        this.userService = userService;
+    function LoginComponent(router, authService) {
         this.router = router;
+        this.authService = authService;
+        this.userName = null;
+        this.password = null;
     }
-    LoginComponent.prototype.login = function (userForm) {
-        this.errorMessage = "";
-        var user = this.userService.findUserByCredentials(userForm.userName, userForm.password);
-        if (user) {
-            //redirect to /user/user.id
-            this.router.navigate(['/user', user.id]);
-        }
-        else {
-            //show error message
-            this.errorMessage = "user not found.";
-        }
+    LoginComponent.prototype.login = function (userName, password) {
+        var _this = this;
+        this.authService.loginUser(userName, password)
+            .map(function (response) {
+            console.log("Getting authentication result from server");
+            var user = response.json();
+            console.log("login result: " + user);
+            if (user != null) {
+                _this.router.navigate(['/user', user.id]);
+            }
+        })
+            .subscribe(function (response) {
+            console.log("Success");
+        }, function (error) {
+            console.log("Error: " + error);
+        });
+    };
+    LoginComponent.prototype.register = function () {
+        this.router.navigate(["/user/register"]);
     };
     return LoginComponent;
 }());
@@ -34,7 +44,7 @@ LoginComponent = __decorate([
     core_1.Component({
         templateUrl: 'app/components/user/login.component.html'
     }),
-    __metadata("design:paramtypes", [user_service_1.UserService, router_1.Router])
+    __metadata("design:paramtypes", [router_1.Router, auth_service_1.AuthService])
 ], LoginComponent);
 exports.LoginComponent = LoginComponent;
 //# sourceMappingURL=login.component.js.map

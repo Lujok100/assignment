@@ -1,26 +1,40 @@
 import { Component } from '@angular/core'
 import { Router } from '@angular/router'
-import { UserService } from '../../services/user.service'
-import { FormsModule } from '@angular/forms'
+import { AuthService } from './auth.service'
+import { UserService } from '../../services/UserService'
 import { IUser } from './user.model'
+import { NgForm } from '@angular/forms'
+
 @Component({
     templateUrl: 'app/components/user/login.component.html'
 })
 
 export class LoginComponent {
-    errorMessage: any
-    constructor(private userService: UserService, private router: Router) {
+
+    userName = null;
+    password = null;
+    user: IUser 
+
+    constructor(private router: Router, private authService: AuthService) { }
+
+    login(userName, password) {
+        this.authService.loginUser(userName, password)
+            .map((response) => {
+                console.log("Getting authentication result from server");
+                let user = response.json();
+                console.log("login result: " + user);
+                if (user != null) {
+                    this.router.navigate(['/user', user.id]);
+                }
+            })
+            .subscribe((response) => {
+                console.log("Success");
+            }, (error) => {
+                console.log("Error: " + error);
+            });
     }
-    login(userForm) {
-        this.errorMessage = "";
-        let user = this.userService.findUserByCredentials(userForm.userName, userForm.password);
-        if (user) {
-            //redirect to /user/user.id
-            this.router.navigate(['/user',user.id])
-        }
-        else {
-            //show error message
-            this.errorMessage = "user not found."
-        }
+
+    register() {
+        this.router.navigate(["/user/register"]);
     }
 }
